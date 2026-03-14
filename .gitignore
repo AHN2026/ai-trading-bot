@@ -1,0 +1,20 @@
+# Sensitive API keys
+kis_key.ini
+token.dat
+.env
+
+# Python bytecode
+__pycache__/
+*.pyc
+*.py[cod]
+*$py.class
+
+# Logs and data
+data/
+logs/
+reports/
+
+# Environments
+venv/
+env/
+.venv/

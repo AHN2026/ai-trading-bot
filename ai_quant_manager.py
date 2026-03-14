@@ -41,7 +41,7 @@ logger = logging.getLogger(__name__)
 class QuantManager:
     """AI 주식 자동매매 시스템의 메인 엔진"""
     def __init__(self):
-        self.notifier = TelegramNotifier(config.TELEGRAM_BOT_TOKEN, config.TELEGRAM_CHAT_ID)
+        # Notifier is removed, using utils.send_telegram_msg directly
         self.risk_manager = RiskManager(config.STOP_LOSS_RATE, config.MAX_POSITIONS)
         self.tracker = HitTracker()
         self.positions = {} # 현재 포지션 정보 {종목코드: 정보}

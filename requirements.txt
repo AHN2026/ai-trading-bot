@@ -1,10 +1,19 @@
+# Core Trading Logic
 requests
 pandas
-google-generativeai
-python-telegram-bot
+pydantic
 schedule
-python-dotenv
 yfinance
+finance-datareader
+pykrx
+
+# API & AI
+google-genai
+google-generativeai
+mojito2
+
+# System & Utilities
 pyyaml
 pycryptodome
+python-dotenv
 websockets

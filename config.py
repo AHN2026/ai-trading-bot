@@ -1,4 +1,10 @@
 import os
+import configparser
+
+# kis_key.ini 파일 읽기 설정
+config_ini = configparser.ConfigParser()
+ini_path = os.path.join(os.path.dirname(__file__), 'kis_key.ini')
+config_ini.read(ini_path, encoding='utf-8')
 
 # ==========================================
 # 1. 자본금 / 현금 관리
@@ -28,11 +34,12 @@ PYRAMID_TRIGGER_3 = 0.04       # 3단계 진입 조건 (+4% 수익 시)
 # ==========================================
 # 4. AI (Google Gemini) 설정
 # ==========================================
-GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "YOUR_GEMINI_API_KEY_HERE")
+GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY") or config_ini.get('GEMINI', 'API_KEY', fallback="")
 GEMINI_MODEL = "gemini-1.5-flash"
 MIN_AI_SCORE = 70             # 최소 AI 분석 점수 (70점 이상일 때 매수)
 HIT_RATE_CHECK_DAYS = 5       # 적중 여부 평가 데드라인 (5일)
 HIT_THRESHOLD_PCT = 0.03      # 수익률 기준치 (+3% 이상이면 HIT)
+
 # ==========================================
 # 5. 거시경제 임계값 (VIX 지수 기준)
 # ==========================================
@@ -48,15 +55,15 @@ MAX_DAILY_LOSS = -0.05         # 일일 최대 허용 손실률 (-5%)
 # ==========================================
 # 7. 텔레그램 설정
 # ==========================================
-TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN", "YOUR_BOT_TOKEN_HERE")
-TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID", "YOUR_CHAT_ID_HERE")
+TELEGRAM_BOT_TOKEN = os.environ.get("TELEGRAM_BOT_TOKEN") or config_ini.get('TELEGRAM', 'TOKEN', fallback="")
+TELEGRAM_CHAT_ID = os.environ.get("TELEGRAM_CHAT_ID") or config_ini.get('TELEGRAM', 'CHAT_ID', fallback="")
 
 # ==========================================
 # 8. 한국투자증권 API 설정 (모의투자 기준)
 # ==========================================
-KIS_APP_KEY = os.environ.get("KIS_APP_KEY", "YOUR_APP_KEY_HERE")
-KIS_APP_SECRET = os.environ.get("KIS_APP_SECRET", "YOUR_APP_SECRET_HERE")
-KIS_ACCOUNT_NO = os.environ.get("KIS_ACCOUNT_NO", "YOUR_ACCOUNT_NO_HERE")
+KIS_APP_KEY = os.environ.get("KIS_APP_KEY") or config_ini.get('KIS', 'APP_KEY', fallback="")
+KIS_APP_SECRET = os.environ.get("KIS_APP_SECRET") or config_ini.get('KIS', 'APP_SECRET', fallback="")
+KIS_ACCOUNT_NO = os.environ.get("KIS_ACCOUNT_NO") or config_ini.get('KIS', 'ACCOUNT_NO', fallback="")
 KIS_PRODUCT_CODE = "01"        # 종합계좌 구분코드
 IS_PAPER_TRADING = True        # 모의투자 여부
 
