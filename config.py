@@ -31,7 +31,8 @@ PYRAMID_TRIGGER_3 = 0.04       # 3단계 진입 조건 (+4% 수익 시)
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "YOUR_GEMINI_API_KEY_HERE")
 GEMINI_MODEL = "gemini-1.5-flash"
 MIN_AI_SCORE = 70             # 최소 AI 분석 점수 (70점 이상일 때 매수)
-
+HIT_RATE_CHECK_DAYS = 5       # 적중 여부 평가 데드라인 (5일)
+HIT_THRESHOLD_PCT = 0.03      # 수익률 기준치 (+3% 이상이면 HIT)
 # ==========================================
 # 5. 거시경제 임계값 (VIX 지수 기준)
 # ==========================================
