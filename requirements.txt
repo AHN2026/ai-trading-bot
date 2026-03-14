@@ -1,0 +1,10 @@
+requests
+pandas
+google-generativeai
+python-telegram-bot
+schedule
+python-dotenv
+yfinance
+pyyaml
+pycryptodome
+websockets
